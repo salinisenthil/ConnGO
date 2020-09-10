@@ -21,8 +21,8 @@ control.inp
 job.inp
 
 Applications Required:
-obabel 2.3.1 (or above)
-Gaussian 16
+obabel 2.3.1 (or above),
+Gaussian 16,
 Numpy
 
 For comments, please contact
