@@ -14,10 +14,10 @@ For analysing results, do
 
 
 Files required in the same directory as filename.smi:
-ConnGO_master.py
-ConnGO_xyz2sdf.py
-ConnGO_check_tautomers.py
-control.inp
+ConnGO_master.py,
+ConnGO_xyz2sdf.py,
+ConnGO_check_tautomers.py,
+control.inp,
 job.inp
 
 Applications Required:
