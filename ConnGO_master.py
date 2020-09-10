@@ -131,7 +131,7 @@ if sys.argv[1] == "analyse":
 
 if sys.argv[1] == "launch":
         if value["job_type"] == "submission":
-            os.system("ls run* > runlist")
+            os.system("ls run*.sh > runlist")
             for rl in open("runlist", "r"):
                 launch = "qsub " + rl
                 pr = "launching " + rl
@@ -139,7 +139,7 @@ if sys.argv[1] == "launch":
                 os.system(launch)
  
         if value["job_type"] == "interactive":
-            os.system("ls run* > runlist")
+            os.system("ls run*.sh > runlist")
             for rl in open("runlist", "r"):
                  launch = "bash " + rl + " & "
                  pr = "launching " + rl
