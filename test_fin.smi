@@ -1,0 +1,12 @@
+NC(=N)C#N             dsgdb9_000058
+NC(=N)C=O             dsgdb9_000061
+N=c1[nH]cco1          dsgdb9_000185
+[NH3+]CC([O-])=O      dsgdb9nsd_000080
+C[NH2+]CC([O-])=O     dsgdb9nsd_000267
+CC([NH3+])C([O-])=O   dsgdb9nsd_000286
+CCC(=O)OC             dsgdb9nsd_000361
+CNC(=O)CO             dsgdb9nsd_000362
+[NH3+]CCC#CC([O-])=O  dsgdb9nsd_006755
+C1C2C3CC1C(C3)C2      mol1
+C1C2C3CC=1C(C3)C2     mol2
+C1C2C3CC=1C(=C3)C2    mol3

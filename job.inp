@@ -1,0 +1,9 @@
+#!/bin/bash
+#PBS -V
+#PBS -l ncpus=16
+#PBS -q workq
+
+WORKDIR=/scratch/salini/PBS_$PBS_JOBID
+mkdir $WORKDIR
+cd $WORKDIR
+GAUSS_SCRDIR=$WORKDIR
