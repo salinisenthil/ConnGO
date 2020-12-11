@@ -1,4 +1,4 @@
-##### OBABEL SETTINGS TIER 1
+##### OBABEL SETTINGS TIER 1 (obabel version 2.4.1 prefered)
 Forcefield: MMFF94 # MMFF94 or UFF 
 Opt_setting: sd    # sd or cg
 Steps:  100000
@@ -19,12 +19,13 @@ tier4_Functional: b3lyp
 tier4_Basis: 6-31g(2df,p)
 tier4_gaussian_setting: SCF(maxcycles=100)  Opt(cartesian,tight,maxcyc=100) Int(Grid=ultrafine) freq
 
-#### Gaussian Settings
+#### Gaussian Settings (will be used for all tiers)
 charge: 0
 multiplicity: 1
 
-##### rmsd file thresholds
+##### rmsd file thresholds (1.7 AA is recommended)
 long_bond: 1.7
 
-#job submission type   # if submission option is selected, fill up the job.inp file with necessary settings
-job_type: submission   # interactive or submission
+#job submission type  
+# if submission option is selected, fill up the job.inp file with necessary settings
+job_type: submission   # submission or interactive 
