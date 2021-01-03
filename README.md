@@ -28,8 +28,8 @@ obabel 2.3.1 (or above),
 Gaussian 16,
 Numpy
 
-Preprint on this work:
-======================
+Preprint:
+=========
 Troubleshooting Unstable Molecules in Chemical Space
 Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan
 https://arxiv.org/abs/2010.02635
