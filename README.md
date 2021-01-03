@@ -32,14 +32,14 @@ Preprint:
 =========
 Troubleshooting Unstable Molecules in Chemical Space\
 Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan\
-https://arxiv.org/abs/2010.02635\
+https://arxiv.org/abs/2010.02635
 
 @article{sentil2020troubleshooting,\
 title={Troubleshooting Unstable Molecules in Chemical Space},\
 author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},\
 journal={arXiv preprint arXiv:2010.02635},\
 year={2020}\
-}\
+}
 
 Contact:
 ========
