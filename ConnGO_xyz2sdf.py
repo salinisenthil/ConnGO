@@ -44,10 +44,13 @@ with open(input_sdf, "r") as i_sdf:
 
         i = 0
         C1= []
+        C2= []
         #for l_isdf1 in range(5+ num_atoms_sdf, 5+num_atoms_sdf +count_ext_sdf):
         for l_isdf1 in range(5+ num_atoms_sdf, num_lines_isdf-1):
             l2 = linecache.getline(input_sdf, l_isdf1)
-            C1.append(l2.strip())
+            C1.append(l2.split())
+            C2.append(l2.strip())
+            #C1.append(l2.strip())
             lsp2 =  l2.split()
             conn1 = [ int(lsp2[0]), int(lsp2[1]) , int(lsp2[2])  ]
             conn_arr[i][0:3]=conn1
@@ -79,24 +82,41 @@ with open(output_com,"w") as new_com_f:
                     cart2 = np.asarray( [ float(lisp3[1]) , float(lisp3[2]), float(lisp3[3]) ], dtype=float  )
                     R3[l_i-3][0:3] = cart2
                 for tmp in range(len(C1)):
-                    new_sdf_f.write(C1[tmp] + "\n")
+                    #new_sdf_f.write(C1[tmp] + "\n")
+                    new_sdf_f.write(C2[tmp] + "\n")
                 new_sdf_f.write("M  END\n$$$$")
-                print(C1[1][0], C1[1][3])
+                #print(C1[1][0], C1[1][3])
+                full =[]
                 
+                s =1
+                for q in range(len(C1)):
+                    for k in range(len(C1[q])):
+                        full.append(C1[q][k])
+                for q in range(len(full)):
+                    full[q] = int(full[q])
+                print(max(full))
+
+
+
                 new_com_f.write("\n")
-                for no in range(len(C1)):
+                #for no in range(len(C1)):
+                for no in range(max(full)):
                     E=[]
                     E.append(no+1)
+                    #for tmp2 in range(max(full)):
                     for tmp2 in range(len(C1)):
                         if  int(C1[tmp2][0]) == no+1:
-                            #print(C1[tmp2][0], no)
-                            E.append(int(C1[tmp2][3]))
-                            E.append(float(C1[tmp2][6]))
+                            E.append(int(C1[tmp2][1]))
+                            #E.append(int(C1[tmp2][3]))
+                            #E.append(float(C1[tmp2][6]))
+                            E.append(float(C1[tmp2][2]))
                     E_str = "  "
                     for e in range(len(E)):
                         E_str = E_str + "  "+ str(E[e])
+                    #print(E_str)
                     new_com_f.write(E_str + "\n")
                 new_com_f.write("\n\n\n")
+
 
         nl1=1
         nl2=-2
@@ -144,13 +164,22 @@ with open(output_com,"w") as new_com_f:
         MPAD=100*sum(abs((dist1-dist2)/dist1))/count_ext_sdf
         new_rmsd_file.write("RMSD= " + str(round(RMSD,4)) + "\n")
         new_rmsd_file.write("MaxAD= " + str(round(MaxAD,4)) + "\n")
-        if MaxAD < 0.2 and MPAD  < 5.0:
-            new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
-        else:
-            if f1_check == 1:
+        if "tier1_vs_tier2" in rmsd_name:   # For tier2 - the threshold criteria is MPAD ONLY. MaxAD is waived. if you want to change this, modify this if statement
+            if MPAD < 5.0:
                 new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
             else:
-                new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  FAIL  \n")
+                if f1_check == 1:
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
+                else:
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  FAIL  \n")
+        else:  # For all other tiers, joint threshold of MaxAD and MPAD is enforced.
+            if MaxAD < 0.2 and MPAD  < 5.0:
+                new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
+            else:
+                if f1_check == 1:
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
+                else:
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  FAIL  \n")
         
 
 
