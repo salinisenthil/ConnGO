@@ -23,8 +23,8 @@ control.inp,
 job.inp
 
 Applications Required:
-======================
-obabel 2.3.1 (or above),
+=======================
+obabel 2.3.2(or above),
 Gaussian 16,
 Numpy
 

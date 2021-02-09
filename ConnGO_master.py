@@ -150,9 +150,9 @@ if sys.argv[1] == "launch":
 
 #obmin
 to_genxyz = "obabel  -oxyz  " + smi_file + " >  " + smi_fsplit[0] +  "_initial.xyz  --gen3d"
-to_obmin = "obminimize -osdf -ff MMFF94 -sd -n 100000 -c 1e-8  " + smi_fsplit[0] + "_initial.xyz  >  " + OMST_sdf
-to_obmin = "obminimize  -osdf  -ff  " + value["Forcefield"] + "  -" + value["Opt_setting"]  + "  -n  " + value["Steps"] + "  -c  " + value["Convergence_setting"] +"  " + smi_fsplit[0] + "_initial.xyz  >  " + OMST_sdf
-omst_xyzgen = "obabel -oxyz " + OMST_sdf + "  > " + OMST_xyz
+#to_obmin = "obminimize -osdf -ff MMFF94 -sd -n 100000 -c 1e-8  " + smi_fsplit[0] + "_initial.xyz  >  " + OMST_sdf
+to_obmin = "obminimize  -osdf  -ff  " + value["Forcefield"] + "  -" + value["Opt_setting"]  + "  -n  " + value["Steps"] + "  -c  " + value["Convergence_setting"] +"  " + smi_fsplit[0] + "_initial.xyz  >  " + obmin_sdf
+omst_xyzgen = "obabel -oxyz " + obmin_sdf + "  > " + obmin_xyz
 
 print("generating initial xyz from smi")
 os.system(to_genxyz)
