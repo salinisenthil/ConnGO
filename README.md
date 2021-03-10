@@ -30,19 +30,19 @@ Numpy
 
 Accepted Manuscript:
 =========
-Troubleshooting Unstable Molecules in Chemical Space (Chemical Science(2021), Accepted article)\ 
-Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan\
-DOI: https://doi.org/10.1039/D0SC05591C
-Preprint: https://arxiv.org/abs/2010.02635
+Troubleshooting Unstable Molecules in Chemical Space (Chemical Science(2021), Accepted article)  \ 
+Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan  \
+DOI: https://doi.org/10.1039/D0SC05591C  
+Preprint: https://arxiv.org/abs/2010.02635  
 
-@article{senthil2021troubleshooting,
-  title={Troubleshooting Unstable Molecules in Chemical Space},
-  author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},
-  journal={Chemical Science},
-  year={2021},
-  publisher={Royal Society of Chemistry}
-}
-
+@article{senthil2021troubleshooting,  
+  title={Troubleshooting Unstable Molecules in Chemical Space},  
+  author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},  
+  journal={Chemical Science},  
+  year={2021},  
+  publisher={Royal Society of Chemistry}  
+}  
+  
 Contact:
 ========
 salini.1405@gmail.com, 
