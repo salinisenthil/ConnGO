@@ -28,7 +28,7 @@ obabel 2.3.2(or above),
 Gaussian 16,
 Numpy
 
-Accepted Manuscript:
+Citation:
 =========
 Troubleshooting Unstable Molecules in Chemical Space (Chemical Science(2021), Accepted article)  
 Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan   
@@ -46,4 +46,13 @@ Preprint: https://arxiv.org/abs/2010.02635
 Contact:
 ========
 salini.1405@gmail.com,  
-ramakrishnan@tifrh.res.in
+ramakrishnan@tifrh.res.in, raghu.rama.chem@gmail.com
+
+{::options parse_block_html="false" /}
+
+<div class="center">
+
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"<a href="https://twitter.com/raghurama123"></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
