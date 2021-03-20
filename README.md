@@ -1,4 +1,7 @@
 # ConnGO
+
+![](https://github.com/raghurama123/ConnGO/blob/master/conngo.gif)
+
 Workflow for CONNectivity preserving Geometry Optimization
 ==========================================================
 
@@ -28,7 +31,7 @@ obabel 2.3.2(or above),
 Gaussian 16,
 Numpy
 
-Accepted Manuscript:
+Citation:
 =========
 Troubleshooting Unstable Molecules in Chemical Space (Chemical Science(2021), Accepted article)  
 Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan   
@@ -47,3 +50,7 @@ Contact:
 ========
 salini.1405@gmail.com,  
 ramakrishnan@tifrh.res.in
+[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/raghurama123.svg?style=social&label=Follow%20%40raghurama123)](https://twitter.com/raghurama123)
+
+
+</div>
