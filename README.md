@@ -1,6 +1,6 @@
 # ConnGO
 
-![](https://twitter.com/i/status/1370378032599375872)
+![](https://github.com/raghurama123/ConnGO/blob/master/conngo.gif)
 
 Workflow for CONNectivity preserving Geometry Optimization
 ==========================================================
