@@ -1,4 +1,7 @@
 # ConnGO
+
+![](https://twitter.com/i/status/1370378032599375872)
+
 Workflow for CONNectivity preserving Geometry Optimization
 ==========================================================
 
