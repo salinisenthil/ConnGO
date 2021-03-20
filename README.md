@@ -28,20 +28,22 @@ obabel 2.3.2(or above),
 Gaussian 16,
 Numpy
 
-Preprint:
+Accepted Manuscript:
 =========
-Troubleshooting Unstable Molecules in Chemical Space\
-Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan\
-https://arxiv.org/abs/2010.02635
+Troubleshooting Unstable Molecules in Chemical Space (Chemical Science(2021), Accepted article)  
+Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan   
+DOI: https://doi.org/10.1039/D0SC05591C  
+Preprint: https://arxiv.org/abs/2010.02635  
 
-@article{senthil2020troubleshooting,\
-title={Troubleshooting Unstable Molecules in Chemical Space},\
-author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},\
-journal={arXiv preprint arXiv:2010.02635},\
-year={2020}\
-}
-
+@article{senthil2021troubleshooting,  
+  title={Troubleshooting Unstable Molecules in Chemical Space},  
+  author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},  
+  journal={Chemical Science},  
+  year={2021},  
+  publisher={Royal Society of Chemistry}  
+}  
+  
 Contact:
 ========
-salini.1405@gmail.com, 
+salini.1405@gmail.com,  
 ramakrishnan@tifrh.res.in
