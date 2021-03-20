@@ -46,13 +46,7 @@ Preprint: https://arxiv.org/abs/2010.02635
 Contact:
 ========
 salini.1405@gmail.com,  
-ramakrishnan@tifrh.res.in, raghu.rama.chem@gmail.com
+ramakrishnan@tifrh.res.in, [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/raghurama123.svg?style=social&label=Follow%20%40raghurama123)](https://twitter.com/raghurama123)
 
-{::options parse_block_html="false" /}
-
-<div class="center">
-
-<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"<a href="https://twitter.com/raghurama123"></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 </div>
