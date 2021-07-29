@@ -3,7 +3,7 @@
 ![](https://github.com/raghurama123/ConnGO/blob/master/conngo.gif)
 
 <a>
-<img src="https://github.com/raghurama123/ConnGO/blob/master/conngo.gif"  height="100">
+<img src="https://github.com/raghurama123/ConnGO/blob/master/conngo.gif"  height="200">
 </a>
 
 Workflow for CONNectivity preserving Geometry Optimization
