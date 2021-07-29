@@ -35,10 +35,10 @@ Numpy
 
 Citation:
 =========
-Troubleshooting Unstable Molecules in Chemical Space (Chemical Science(2021), Accepted article)  
+Troubleshooting Unstable Molecules in Chemical Space
 Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan   
+Chemical Science 12 (2021) 5566.
 DOI: https://doi.org/10.1039/D0SC05591C  
-Preprint: https://arxiv.org/abs/2010.02635  
 
 ```
 @article{senthil2021troubleshooting,
