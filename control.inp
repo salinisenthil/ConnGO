@@ -19,7 +19,7 @@ tier4_Functional: b3lyp
 tier4_Basis: 6-31g(2df,p)
 tier4_gaussian_setting: SCF(maxcycles=100)  Opt(tight,maxcyc=100) Int(Grid=ultrafine) freq
 
-# For linear molecules, "cartesian" keyword (in Opt) might be needed for proper convergence.
+# For Error terminations with "Linear angle in Bend." optimize the geometry in Cartesian coordinates using the option Opt(Cartesian, ...).
 
 #### Gaussian Settings (will be used for all tiers)
 charge: 0
