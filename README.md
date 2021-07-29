@@ -1,7 +1,7 @@
 # ConnGO
 
 <a>
-<img src="https://github.com/raghurama123/ConnGO/blob/master/conngo.gif"  height="400">
+<img src="https://github.com/raghurama123/ConnGO/blob/master/conngo.gif"  height="350">
 </a>
 
 Workflow for CONNectivity preserving Geometry Optimization
