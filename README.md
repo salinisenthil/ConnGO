@@ -47,6 +47,10 @@ Preprint: https://arxiv.org/abs/2010.02635
   year={2021},  
   publisher={Royal Society of Chemistry}  
 }  
+
+Data:
+=====
+curatedQM9 dataset can be downloaded from [https://github.com/moldis-group/curatedQM9](https://github.com/moldis-group/curatedQM9)
   
 Contact:
 ========
