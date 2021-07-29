@@ -40,13 +40,19 @@ Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan
 DOI: https://doi.org/10.1039/D0SC05591C  
 Preprint: https://arxiv.org/abs/2010.02635  
 
-@article{senthil2021troubleshooting,  
-  title={Troubleshooting Unstable Molecules in Chemical Space},  
-  author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},  
-  journal={Chemical Science},  
-  year={2021},  
-  publisher={Royal Society of Chemistry}  
-}  
+```
+@article{senthil2021troubleshooting,
+  title={Troubleshooting unstable molecules in chemical space},
+  author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},
+  journal={Chemical Science},
+  volume={12},
+  number={15},
+  pages={5566--5573},
+  year={2021},
+  publisher={Royal Society of Chemistry}
+}
+```
+
 
 Data:
 =====
