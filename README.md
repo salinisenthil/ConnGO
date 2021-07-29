@@ -1,6 +1,8 @@
 # ConnGO
 
-![](https://github.com/raghurama123/ConnGO/blob/master/conngo.gif)
+<a>
+<img src="https://github.com/raghurama123/ConnGO/blob/master/conngo.gif"  height="350">
+</a>
 
 Workflow for CONNectivity preserving Geometry Optimization
 ==========================================================
@@ -33,24 +35,34 @@ Numpy
 
 Citation:
 =========
-Troubleshooting Unstable Molecules in Chemical Space (Chemical Science(2021), Accepted article)  
-Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan   
-DOI: https://doi.org/10.1039/D0SC05591C  
-Preprint: https://arxiv.org/abs/2010.02635  
+[_Troubleshooting Unstable Molecules in Chemical Space_](https://doi.org/10.1039/D0SC05591C)     
+Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan    
+Chemical Science 12 (2021) 5566.      
+[Supplementary Information](https://www.rsc.org/suppdata/d0/sc/d0sc05591c/d0sc05591c1.pdf?_ga=2.131971783.991549754.1627539948-1555635634.1627451674)
 
-@article{senthil2021troubleshooting,  
-  title={Troubleshooting Unstable Molecules in Chemical Space},  
-  author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},  
-  journal={Chemical Science},  
-  year={2021},  
-  publisher={Royal Society of Chemistry}  
-}  
+```
+@article{senthil2021troubleshooting,
+  title={Troubleshooting unstable molecules in chemical space},
+  author={Senthil, Salini and Chakraborty, Sabyasachi and Ramakrishnan, Raghunathan},
+  journal={Chemical Science},
+  volume={12},
+  number={15},
+  pages={5566--5573},
+  year={2021},
+  url={https://doi.org/10.1039/D0SC05591C},
+  publisher={Royal Society of Chemistry}
+}
+```
+
+
+Data:
+=====
+curatedQM9 dataset can be downloaded from [https://github.com/moldis-group/curatedQM9](https://github.com/moldis-group/curatedQM9)
   
 Contact:
 ========
 salini.1405@gmail.com,  
 ramakrishnan@tifrh.res.in
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/raghurama123.svg?style=social&label=Follow%20%40raghurama123)](https://twitter.com/raghurama123)
 
 
 </div>
