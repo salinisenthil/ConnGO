@@ -7,17 +7,17 @@ Convergence_setting:  1e-8
 ##### TIER 2
 tier2_Functional: HF
 tier2_Basis: sto-3g
-tier2_gaussian_setting: SCF(maxcycles=100)  Opt(cartesian,tight,maxcyc=100) freq
+tier2_gaussian_setting: SCF(maxcycles=100)  Opt(calcall,tight,maxcyc=100) freq
 
 #### TIER 3
 tier3_Functional: b3lyp
 tier3_Basis: 3-21g
-tier3_gaussian_setting: SCF(maxcycles=100)  Opt(cartesian,tight,maxcyc=100) Int(Grid=ultrafine) freq
+tier3_gaussian_setting: SCF(maxcycles=100)  Opt(calcfc,tight,maxcyc=100) Int(Grid=ultrafine) freq
 
 #### TIER 4
 tier4_Functional: b3lyp
 tier4_Basis: 6-31g(2df,p)
-tier4_gaussian_setting: SCF(maxcycles=100)  Opt(cartesian,tight,maxcyc=100) Int(Grid=ultrafine) freq
+tier4_gaussian_setting: SCF(maxcycles=100)  Opt(tight,maxcyc=100) Int(Grid=ultrafine) freq
 
 #### Gaussian Settings (will be used for all tiers)
 charge: 0
