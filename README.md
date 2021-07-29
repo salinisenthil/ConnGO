@@ -37,7 +37,7 @@ Citation:
 =========
 [_Troubleshooting Unstable Molecules in Chemical Space_](https://doi.org/10.1039/D0SC05591C)     
 Salini Senthil, Sabyasachi Chakraborty, Raghunathan Ramakrishnan    
-Chemical Science 12 (2021) 5566.
+Chemical Science 12 (2021) 5566.      
 [Supplementary Information](https://www.rsc.org/suppdata/d0/sc/d0sc05591c/d0sc05591c1.pdf?_ga=2.131971783.991549754.1627539948-1555635634.1627451674)
 
 ```
