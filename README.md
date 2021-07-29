@@ -50,7 +50,6 @@ Contact:
 ========
 salini.1405@gmail.com,  
 ramakrishnan@tifrh.res.in
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/raghurama123.svg?style=social&label=Follow%20%40raghurama123)](https://twitter.com/raghurama123)
 
 
 </div>
