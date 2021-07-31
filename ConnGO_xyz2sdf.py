@@ -11,6 +11,8 @@ output_com  = sys.argv[5]
 rmsd_name   = sys.argv[6]
 charge      =  sys.argv[7]
 multiplicity =  sys.argv[8]
+mem         = sys.argv[9]
+nproc       = sys.argv[10]
 #def convert_sdf(input_sdf, input_xyz, thresh, output_sdf, output_com, rmsd_name):
 
 with open(input_sdf, "r") as i_sdf:
@@ -62,7 +64,7 @@ with open(input_sdf, "r") as i_sdf:
             i = i + 1
 
 with open(output_com,"w") as new_com_f:
-    new_com_f.write("%mem=8gb\n%nproc=8\n")
+    new_com_f.write("%mem="+mem+"gb\n%nproc="+nproc"+\n")
     new_com_f.write("#P METHOD Geom=Connectivity\n\n")
     new_com_f.write(output_com + "\n\n")
     new_com_f.write(charge + "  "+ multiplicity +"\n")
