@@ -14,18 +14,16 @@ tier2_gaussian_setting: SCF(maxcycles=100)  Opt(calcall,tight,maxcyc=100) freq
 #### TIER 3
 tier3_mem: 8GB
 tier3_nprocs: 2
-tier3_Functional: b3lyp
+tier3_Functional: B3LYP
 tier3_Basis: 3-21g
-tier3_gaussian_setting: SCF(maxcycles=100)  Opt(calcfc,tight,maxcyc=100) Int(Grid=ultrafine) freq
+tier3_gaussian_setting: SCF(verytight, maxcycles=100)  Opt(calcfc,tight,maxcyc=100) Int(Grid=ultrafine) freq
 
 #### TIER 4
 tier4_mem: 8GB
 tier4_nprocs: 2
-tier4_Functional: b3lyp
+tier4_Functional: B3LYP
 tier4_Basis: 6-31g(2df,p)
-tier4_gaussian_setting: SCF(maxcycles=100)  Opt(tight,maxcyc=100) Int(Grid=ultrafine) freq
-
-# For Error termination with the message "Linear angle in Bend.", optimize the geometry in Cartesian coordinates using Opt(Cartesian, ...).
+tier4_gaussian_setting: SCF(verytight, maxcycles=100)  Opt(tight,maxcyc=100) Int(Grid=ultrafine) freq
 
 #### Gaussian Settings (will be used for all tiers)
 charge: 0
