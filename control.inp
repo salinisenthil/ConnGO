@@ -1,0 +1,39 @@
+##### OBABEL SETTINGS TIER 1 (obabel version 2.4.1 prefered)
+Forcefield: MMFF94 # MMFF94 or UFF 
+Opt_setting: sd    # sd or cg
+Steps:  100000
+Convergence_setting:  1e-8
+
+##### TIER 2
+tier2_mem: 8
+tier2_nprocs: 2
+tier2_Functional: HF
+tier2_Basis: sto-3g
+tier2_gaussian_setting: SCF(maxcycles=100)  Opt(calcall,tight,maxcyc=100) freq
+
+#### TIER 3
+tier3_mem: 8
+tier3_nprocs: 2
+tier3_Functional: b3lyp
+tier3_Basis: 3-21g
+tier3_gaussian_setting: SCF(maxcycles=100)  Opt(calcfc,tight,maxcyc=100) Int(Grid=ultrafine) freq
+
+#### TIER 4
+tier4_mem: 8
+tier4_nprocs: 2
+tier4_Functional: b3lyp
+tier4_Basis: 6-31g(2df,p)
+tier4_gaussian_setting: SCF(maxcycles=100)  Opt(tight,maxcyc=100) Int(Grid=ultrafine) freq
+
+# For Error termination with the message "Linear angle in Bend.", optimize the geometry in Cartesian coordinates using Opt(Cartesian, ...).
+
+#### Gaussian Settings (will be used for all tiers)
+charge: 0
+multiplicity: 1
+
+##### rmsd file thresholds (1.7 AA is recommended)
+long_bond: 1.7
+
+#job submission type  
+# if submission option is selected, fill up the job.inp file with necessary settings
+job_type: submission   # submission or interactive 
