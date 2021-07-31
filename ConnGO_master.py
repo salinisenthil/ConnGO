@@ -14,7 +14,7 @@ smi_fsplit = smi_file.split(".")
 obmin_sdf = smi_fsplit[0] + "_obmin.sdf"
 obmin_xyz = smi_fsplit[0] + "_obmin.xyz"
 
-settings = ["Forcefield", "Opt_setting", "Steps", "Convergence_setting", "tier2_Functional", "tier2_Basis","tier2_gaussian_setting", "tier3_Functional", "tier3_Basis","tier3_gaussian_setting", "tier4_Functional", "tier4_Basis","tier4_gaussian_setting", "charge", "multiplicity", "long_bond", "job_type"]
+settings = ["Forcefield", "Opt_setting", "Steps", "Convergence_setting", "tier2_mem", "tier2_nprocs","tier2_Functional", "tier2_Basis","tier2_gaussian_setting", "tier3_mem", "tier3_nprocs", "tier3_Functional", "tier3_Basis","tier3_gaussian_setting", "tier4_mem", "tier4_nprocs","tier4_Functional", "tier4_Basis","tier4_gaussian_setting", "charge", "multiplicity", "long_bond", "job_type"]
 ### READING CONTROL FILE
 value = {}
 with open(control_file, "r") as ctrl:
@@ -168,9 +168,11 @@ def launch_test(title_name, sdf_file,xyz_file, tier_level):
         fl1 = tier_level+"_Functional"
         bl1 = tier_level+"_Basis"
         st1 = tier_level+"_gaussian_setting"
+        tt1 = tier_level+"_mem"
+        tt2 = tier_level+"_nprocs"
         current_launch_com = current_title + "_" + tier_level + ".com"
         #create_comfile = "/apps/moldis_utils/sdf2sdf/xyz2sdf_v1.exe  " + current_sdf + "  " + xyz_file + "   discard.sdf  1.7  " + current_launch_com + " 2  > discard_rmsd" + current_title + "\n\n"
-        create_comfile = "python  " + current_dir_path +"/ConnGO_xyz2sdf.py   " + sdf_file + "  " + xyz_file + "  1.7  discard.sdf  " + current_launch_com + "  discard_rmsd   " + value["charge"].strip() +"  "+ value["multiplicity"].strip() +" \n\n"
+        create_comfile = "python  " + current_dir_path +"/ConnGO_xyz2sdf.py   " + sdf_file + "  " + xyz_file + "  1.7  discard.sdf  " + current_launch_com + "  discard_rmsd   " + value["charge"].strip() +"  "+ value["multiplicity"].strip() +"  "+ value[tt1].strip() +"  " + value[tt2].strip() + " \n\n"
         #method_insert_hf =  "sed -i \"s/METHOD/HF\\\/sto-3G SCF(maxcycles=100) Opt(calcall,cartesian,tight,maxcyc=100) Int(Grid=Ultrafine) freq /\"  " + current_launch_com + " \n\n"
         #method_insert_hf =  "sed -i \"s/METHOD/" + func + "\\\/" + basis1 + "  SCF(maxcycles=100) Opt(calcall,cartesian,tight,maxcyc=100) Int(Grid=Ultrafine) freq /\" " + current_launch_com + " \n\n"
         method_insert_hf =  "sed -i \"s/METHOD/" + value[fl1] + "\\\/" + value[bl1] + "  " + value[st1] +"  /\"  " + current_launch_com + " \n\n"
@@ -195,7 +197,7 @@ def hf_fail(title_name):
 
         opt_321g_xyz = "for f in " + current_321g_log+ "; do NATOMS=$(grep -m1 NAtom $f | awk \'{print $2}\'); echo $NATOMS; echo ${f%.*}; grep -i -A $(( $NATOMS + 4 )) \'Standard Orientation\' $f|  tail -$NATOMS | awk \'{printf \"%3g\" \"%15.8f\" \"%15.8f\" \"%15.8f\", $2, $4, $5, $6}{printf \"\\n\"}\' ; done >  " +current_321g_xyz+ " \n\n"
         #create_321g_rmsd = "/apps/moldis_utils/sdf2sdf/xyz2sdf_v1.exe  " +  current_sdf +"   " + current_321g_xyz +  "  321g.sdf  1.7  " + " temp1.com   2  > rmsd_mmff_dp_" + current_title + "\n\n"
-        create_321g_rmsd = "python  " + current_dir_path + "/ConnGO_xyz2sdf.py  " + current_sdf + "  " + current_321g_xyz + "  1.7 " + current_321g_sdf + " temp.com   rmsd_tier1_vs_tier3_" + title_name+ "   " + value["charge"].strip() +"  "+ value["multiplicity"].strip() + " \n\n"
+        create_321g_rmsd = "python  " + current_dir_path + "/ConnGO_xyz2sdf.py  " + current_sdf + "  " + current_321g_xyz + "  1.7 " + current_321g_sdf + " temp.com   rmsd_tier1_vs_tier3_" + title_name+ "   " + value["charge"].strip() +"  "+ value["multiplicity"].strip() + " 8  2  \n\n"
         check_FAIL_321g = "if grep  -q \"FAIL\"  rmsd_tier1_vs_tier3_" + current_title + "  ;  then\n"
 
         run_file.write(opt_321g_xyz)
@@ -226,7 +228,7 @@ def check_2dfp_status(title_name, previous_tier_sdf, tier):
     opt_2dfp_xyz = "for f in " + current_2dfp_log + "; do NATOMS=$(grep -m1 NAtom $f | awk \'{print $2}\'); echo $NATOMS; echo ${f%.*}; grep -i -A $(( $NATOMS + 4 )) \'Standard Orientation\' $f|  tail -$NATOMS | awk \'{printf \"%3g\" \"%15.8f\" \"%15.8f\" \"%15.8f\", $2, $4, $5, $6}{printf \"\\n\"}\' ; done >  " + current_2dfp_xyz + " \n\n"
    
     #create_2dfp_rmsd = "/apps/moldis_utils/sdf2sdf/xyz2sdf_v1.exe  " +  previous_tier_sdf + "  " +current_2dfp_xyz +  "  2dfp.sdf  1.7  " + "temp1.com   2  > rmsd_"+ tier+"_2dfp_" + current_title + "\n\n"
-    create_2dfp_rmsd = "python  " + current_dir_path + "/ConnGO_xyz2sdf.py  " + previous_tier_sdf + "  " + current_2dfp_xyz + "  1.7 " + current_2dfp_sdf + "  temp.com  rmsd_" + tier + "_vs_tier4_" + title_name + "   " + value["charge"].strip() +"  "+ value["multiplicity"].strip() +"\n\n"
+    create_2dfp_rmsd = "python  " + current_dir_path + "/ConnGO_xyz2sdf.py  " + previous_tier_sdf + "  " + current_2dfp_xyz + "  1.7 " + current_2dfp_sdf + "  temp.com  rmsd_" + tier + "_vs_tier4_" + title_name + "   " + value["charge"].strip() +"  "+ value["multiplicity"].strip() +" 8  2 \n\n"
     run_file.write(check_normalterm)
     run_file.write(opt_2dfp_xyz)
     run_file.write(create_2dfp_rmsd)
@@ -344,7 +346,7 @@ for line_title in open("title_list","r"):
 
         opt_hf_xyz = " for f in " + current_hf_log+ "; do NATOMS=$(grep -m1 NAtom $f | awk \'{print $2}\'); echo $NATOMS; echo ${f%.*}; grep -i -A $(( $NATOMS + 4 )) \'Standard Orientation\' $f|  tail -$NATOMS | awk \'{printf \"%3g\" \"%15.8f\" \"%15.8f\" \"%15.8f\", $2, $4, $5, $6}{printf \"\\n\"}\' ; done >  " +current_hf_xyz+ " \n\n"
         #create_hf_rmsd = "/apps/moldis_utils/sdf2sdf/xyz2sdf_v1.exe  " +  current_sdf + "  "+ current_hf_xyz +  "  hf.sdf  1.7  " + "temp1.com   2  > rmsd_mmff_hf_" + current_title + "\n\n"
-        create_hf_rmsd = "python " + current_dir_path + "/ConnGO_xyz2sdf.py  " + current_sdf + "  " + current_hf_xyz + "  1.7 " + current_hf_sdf +"  temp.com  rmsd_tier1_vs_tier2_" + current_title + "  " + value["charge"].strip() +"  "+ value["multiplicity"].strip() +" \n\n"
+        create_hf_rmsd = "python " + current_dir_path + "/ConnGO_xyz2sdf.py  " + current_sdf + "  " + current_hf_xyz + "  1.7 " + current_hf_sdf +"  temp.com  rmsd_tier1_vs_tier2_" + current_title + "  " + value["charge"].strip() +"  "+ value["multiplicity"].strip() +" 8  2\n\n"
         check_FAIL_hf = "if grep  -q \"FAIL\"  rmsd_tier1_vs_tier2_" + current_title + "  ;  then\n"
         
         run_file.write(opt_hf_xyz)
