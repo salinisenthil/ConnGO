@@ -57,7 +57,7 @@ Chemical Science 12 (2021) 5566.
 
 Data:
 =====
-curatedQM9 dataset can be downloaded from [https://github.com/moldis-group/curatedQM9](https://github.com/moldis-group/curatedQM9)
+curatedQM9 dataset can be downloaded from [https://moldis-group.github.io/curatedQM9/](https://moldis-group.github.io/curatedQM9/)
   
 Contact:
 ========
