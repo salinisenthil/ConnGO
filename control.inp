@@ -1,4 +1,8 @@
 ##### OBABEL SETTINGS TIER 1 (obabel version 2.4.1 prefered)
+#if load sdf is true, obabel is not run, please provide Tier1 filename.sdf and filename.xyz  in pwd.
+load_SDF: true
+SDF_filename: filename.sdf
+
 Forcefield: MMFF94 # MMFF94 or UFF 
 Opt_setting: sd    # sd or cg
 Steps:  100000
@@ -29,8 +33,12 @@ tier4_gaussian_setting: SCF(verytight, maxcycles=100)  Opt(tight,maxcyc=100) Int
 charge: 0
 multiplicity: 1
 
-##### rmsd file thresholds (1.7 AA is recommended)
+##### cut-off for long bond (1.7 AA is recommended for C-C)
 long_bond: 1.7
+
+##### Thresholds for connectivity preservation
+thresh_MPAD: 5.0     # Mean absolute percentage deviation in connected bonds
+thresh_MaxAD: 0.2    # Maximum absolute deviation in connected bonds
 
 #job submission type  
 # if submission option is selected, fill up the job.inp file with necessary settings
