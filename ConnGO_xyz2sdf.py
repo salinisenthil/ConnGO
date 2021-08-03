@@ -3,6 +3,11 @@ import linecache
 import numpy as np
 
 
+
+current_dir_path = os.getcwd()
+
+control_file = current_dir_path + "/control.inp"
+
 input_sdf   = sys.argv[1]
 input_xyz   = sys.argv[2]
 thresh      = sys.argv[3]
@@ -14,6 +19,25 @@ multiplicity =  sys.argv[8]
 mem         = sys.argv[9]
 nproc       = sys.argv[10]
 #def convert_sdf(input_sdf, input_xyz, thresh, output_sdf, output_com, rmsd_name):
+
+settings = [ "long_bond", "thresh_MPAD", "thresh_MaxAD"]
+### READING CONTROL FILE
+value = {}
+with open(control_file, "r") as ctrl:
+    u = 0
+    while u < len((settings)):
+        for line in ctrl:
+            if settings[u] in line:
+                val_line = line.split(":")
+                if "#" in val_line[1]:
+                    val_split = val_line[1].split("#")
+                    value[settings[u]] = val_split[0].strip()
+                else:
+                    value[settings[u]] = val_line[1].strip()
+                break
+        u = u +1
+
+
 
 with open(input_sdf, "r") as i_sdf:
         num_lines_isdf = sum(1 for line_isdf in i_sdf)
@@ -153,7 +177,7 @@ with open(output_com,"w") as new_com_f:
 #        print(dist2)
         f1_check = 0
         if ( nl1+nl2 == -1):
-            new_rmsd_file.write('Both files are OK\n')
+            new_rmsd_file.write('\n** Geometries in file-1 and file-2 seem alright, no broken structures detected **\n\n')
         elif ( nl1+nl2 == -2):
             new_rmsd_file.write('File-1 contains long bond!\n')
             f1_check = 1
@@ -164,24 +188,46 @@ with open(output_com,"w") as new_com_f:
         RMSD=np.sqrt(sum((dist1-dist2)**2)/count_ext_sdf)
         MaxAD=np.max(np.abs(dist1-dist2))
         MPAD=100*sum(abs((dist1-dist2)/dist1))/count_ext_sdf
-        new_rmsd_file.write("RMSD= " + str(round(RMSD,4)) + "\n")
-        new_rmsd_file.write("MaxAD= " + str(round(MaxAD,4)) + "\n")
+        new_rmsd_file.write("== Mean square deviation of bond lengths from file-1 and file-2\n")
+        new_rmsd_file.write("MSD= " + str(round(RMSD,4)) + " Ang \n\n")
+        new_rmsd_file.write("== Maximum absolute deviation in bond lengths from file-1 and file-2\n")
+        new_rmsd_file.write("MaxAD= " + str(round(MaxAD,4)) + " Ang\n\n")
         if "tier1_vs_tier2" in rmsd_name:   # For tier2 - the threshold criteria is MPAD ONLY. MaxAD is waived. if you want to change this, modify this if statement
-            if MPAD < 5.0:
-                new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
+            #if MPAD < 5.0:
+            if MPAD < float(value["thresh_MPAD"]):
+                new_rmsd_file.write("== Mean percentage absolute deviation in bond lengths from file-1 and file-2\n")
+                new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  \n\n")
+                new_rmsd_file.write("== Outcome of the Connectivity preserving Geometry Optimization\n")
+                new_rmsd_file.write("** ConnGO PASS [MPAD < 5] **\n")
             else:
                 if f1_check == 1:
-                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
+                    new_rmsd_file.write("== Mean percentage absolute deviation in bond lengths from file-1 and file-2\n")
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + " \n\n")
+                    new_rmsd_file.write("== Outcome of the Connectivity preserving Geometry Optimization\n")
+                    new_rmsd_file.write("** ConnGO PASS [MPAD < 5] **\n")
                 else:
-                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  FAIL  \n")
+                    new_rmsd_file.write("== Mean percentage absolute deviation in bond lengths from file-1 and file-2\n")
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  \n\n")
+                    new_rmsd_file.write("== Outcome of the Connectivity preserving Geometry Optimization\n")
+                    new_rmsd_file.write("** ConnGO FAIL [MPAD < 5] **\n")
         else:  # For all other tiers, joint threshold of MaxAD and MPAD is enforced.
-            if MaxAD < 0.2 and MPAD  < 5.0:
-                new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
+            #if MaxAD < 0.2 and MPAD  < 5.0:
+            if MaxAD < float(value["thresh_MaxAD"]) and MPAD  < float(value["thresh_MPAD"]):
+                new_rmsd_file.write("== Mean percentage absolute deviation in bond lengths from file-1 and file-2\n")
+                new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  \n\n")
+                new_rmsd_file.write("== Outcome of the Connectivity preserving Geometry Optimization\n")
+                new_rmsd_file.write("** ConnGO PASS [MPAD < 5, MaxAD < 0.2 Angstrom] **\n")
             else:
                 if f1_check == 1:
-                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  PASS  \n")
+                    new_rmsd_file.write("== Mean percentage absolute deviation in bond lengths from file-1 and file-2\n")
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  \n\n")
+                    new_rmsd_file.write("== Outcome of the Connectivity preserving Geometry Optimization\n")
+                    new_rmsd_file.write("** ConnGO PASS [MPAD < 5, MaxAD < 0.2 Angstrom] **\n")
                 else:
-                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  FAIL  \n")
+                    new_rmsd_file.write("== Mean percentage absolute deviation in bond lengths from file-1 and file-2\n")
+                    new_rmsd_file.write("MPAD= " +str(round(MPAD,4)) + "  \n\n")
+                    new_rmsd_file.write("== Outcome of the Connectivity preserving Geometry Optimization\n")
+                    new_rmsd_file.write("** ConnGO FAIL [MPAD < 5, MaxAD < 0.2 Angstrom] **\n")
         
 
 
