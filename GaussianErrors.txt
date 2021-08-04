@@ -1,3 +1,5 @@
+ === List of Gaussian errors and their diagnostics
+ 
  Bend failed for angle     1 -     2 -     3
  Tors failed for dihedral     1 -     2 -     3 -     4
  Tors failed for dihedral     1 -     2 -     3 -     8
