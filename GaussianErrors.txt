@@ -1,6 +1,8 @@
-List of Gaussian errors and their diagnostics
+List of Gaussian errors and their diagnostics [under progress]
 =============================================
  
+ CASE - 1
+ --------
  Bend failed for angle     1 -     2 -     3
  Tors failed for dihedral     1 -     2 -     3 -     4
  Tors failed for dihedral     1 -     2 -     3 -     8
