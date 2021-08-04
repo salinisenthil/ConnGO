@@ -18,6 +18,9 @@ For launching run files, do
 For analysing results, do
 > python  ConnGO_master.py  analyse
 
+For creating new compare files, do
+> python ConnGO_master.py compare dir_name
+
 
 Files required in the same directory as filename.smi:
 =====================================================
