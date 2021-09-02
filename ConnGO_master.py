@@ -241,6 +241,9 @@ with open(obmin_sdf, "r") as initial_sdf:
         num_atoms_sdf = int(P_lsp[0])
         count_ext_sdf = int(P_lsp[1])
         next_ln_sdf = ln_sdf + num_atoms_sdf + count_ext_sdf + 6
+        if IndexError:
+             print("extra lines in sdf file, check if there are additional lines like CHG, RAD. If yes, remove them")
+             sys.exit()
         P1 = linecache.getline(obmin_sdf, ln_sdf).strip()
         fname_sdf = P1 + "_tier1.sdf"
         with open("title_list", "a") as dl1:
